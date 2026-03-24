@@ -1,0 +1,43 @@
+{
+  "name": "college-matcher",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm:dev:web\" \"npm:dev:server\"",
+    "dev:web": "next dev",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "npm run build:web && npm run build:server",
+    "build:web": "next build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "start": "concurrently \"npm:start:web\" \"npm:start:server\"",
+    "start:web": "next start",
+    "start:server": "node dist/server/index.js",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.server.json --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "next": "^15.3.0",
+    "pdfkit": "^0.17.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "@types/pdfkit": "^0.17.2",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.2",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
